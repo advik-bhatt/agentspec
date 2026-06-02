@@ -1,0 +1,28 @@
+[project]
+name = "agentspec"
+version = "0.1.0"
+description = "A cloneable CLI test harness for AI agents: contracts, eval cases, regression reports, and CI-ready exits."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Advik Bhatt" }]
+keywords = ["ai", "agents", "evals", "testing", "llm", "ci", "prompt-engineering"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+]
+dependencies = ["PyYAML>=6.0.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[project.scripts]
+agentspec = "agentspec.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+include = ["agentspec*"]
+exclude = ["examples*", "tests*", "docs*", "reports*"]
